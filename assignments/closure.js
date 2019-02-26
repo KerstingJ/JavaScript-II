@@ -7,6 +7,8 @@ function dextersParents() {
   function dextersLaboratory(){
     //dexters parents dont know whats going on in dexters laboratory
     let dexterDoingExperiments = true;
+    let thingsDexterKnows =['a bunch of science stuff'];
+    thingsDexterKnows.push(momsMessage);
   }
 }
 
@@ -36,13 +38,18 @@ const counterFactory = () => {
   
   let counter = {
     increment: function(){ return ++count},
-    decrement: function(){ return --count}
-  }
-  
+    decrement: function(){ return --count},
+    currentCount: function(){return count}
+  };
+
   return counter;
 };
 
 let newCounter = counterFactory();
 console.log(newCounter.increment());
+console.log(newCounter.decrement());
 console.log(newCounter.increment());
-console.log(newCounter.increment());
+while (newCounter.currentCount() < 10){
+  newCounter.increment();
+}
+console.log(newCounter.currentCount());
